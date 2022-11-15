@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="Part138_v0" unit="mm" x="-1234.20467514" y="-30.1068404874" z="668.111399957"/>
+ <position name="Part138_v1" unit="mm" x="-1209.09627626" y="-29.4095976757" z="718.836351082"/>
+ <position name="Part138_v2" unit="mm" x="-1234.20467514" y="30.1068404874" z="668.111399957"/>
+ <position name="Part138_v3" unit="mm" x="-1209.09627626" y="29.4095976757" z="718.836351082"/>
+ <position name="Part138_v4" unit="mm" x="-822.744749621" y="20.492759382" z="473.703036456"/>
+ <position name="Part138_v5" unit="mm" x="-805.0" y="20.0" z="509.55166071"/>
+ <position name="Part138_v6" unit="mm" x="-805.0" y="-20.0" z="509.55166071"/>
+ <position name="Part138_v7" unit="mm" x="-822.744749621" y="-20.492759382" z="473.703036456"/>
+ </define>
+
+ <materials>
+   <material name="Sci-Glass_1" state="solid">
+       <D unit="g/cm3" value="4.22"/>
+       <fraction n="0.3875" ref="G4_Ba"/>
+       <fraction n="0.2146" ref="G4_Gd"/>
+       <fraction n="0.1369" ref="G4_Si"/>
+       <fraction n="0.261" ref="G4_O"/>
+   </material>
+ </materials>
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="Part138_solid">
+ <triangular vertex1="Part138_v0" vertex2="Part138_v1" vertex3="Part138_v2"/>
+ <triangular vertex1="Part138_v1" vertex2="Part138_v3" vertex3="Part138_v2"/>
+ <triangular vertex1="Part138_v2" vertex2="Part138_v3" vertex3="Part138_v4"/>
+ <triangular vertex1="Part138_v4" vertex2="Part138_v3" vertex3="Part138_v5"/>
+ <triangular vertex1="Part138_v6" vertex2="Part138_v7" vertex3="Part138_v4"/>
+ <triangular vertex1="Part138_v6" vertex2="Part138_v4" vertex3="Part138_v5"/>
+ <triangular vertex1="Part138_v0" vertex2="Part138_v7" vertex3="Part138_v1"/>
+ <triangular vertex1="Part138_v7" vertex2="Part138_v6" vertex3="Part138_v1"/>
+ <triangular vertex1="Part138_v0" vertex2="Part138_v2" vertex3="Part138_v7"/>
+ <triangular vertex1="Part138_v7" vertex2="Part138_v2" vertex3="Part138_v4"/>
+ <triangular vertex1="Part138_v5" vertex2="Part138_v3" vertex3="Part138_v1"/>
+ <triangular vertex1="Part138_v5" vertex2="Part138_v1" vertex3="Part138_v6"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="Part138">
+ <materialref ref="Sci-Glass_1"/>
+ <solidref ref="Part138_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="Part138"/>
+ </setup>
+</gdml>

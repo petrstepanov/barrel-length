@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="Part126_v0" unit="mm" x="-1030.91548685" y="25.7563603057" z="-2038.45983899"/>
+ <position name="Part126_v1" unit="mm" x="-1074.97524927" y="26.7611060807" z="-2012.54038714"/>
+ <position name="Part126_v2" unit="mm" x="-839.476703621" y="20.7862121899" z="-1623.18664163"/>
+ <position name="Part126_v3" unit="mm" x="-805.0" y="20.0" z="-1643.46857712"/>
+ <position name="Part126_v4" unit="mm" x="-839.476703621" y="-20.78621219" z="-1623.18664163"/>
+ <position name="Part126_v5" unit="mm" x="-805.0" y="-20.0" z="-1643.46857712"/>
+ <position name="Part126_v6" unit="mm" x="-1030.91548685" y="-25.7563603054" z="-2038.45983899"/>
+ <position name="Part126_v7" unit="mm" x="-1074.97524927" y="-26.7611060804" z="-2012.54038714"/>
+ </define>
+
+ <materials>
+   <material name="Sci-Glass_1" state="solid">
+       <D unit="g/cm3" value="4.22"/>
+       <fraction n="0.3875" ref="G4_Ba"/>
+       <fraction n="0.2146" ref="G4_Gd"/>
+       <fraction n="0.1369" ref="G4_Si"/>
+       <fraction n="0.261" ref="G4_O"/>
+   </material>
+ </materials>
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="Part126_solid">
+ <triangular vertex1="Part126_v0" vertex2="Part126_v1" vertex3="Part126_v2"/>
+ <triangular vertex1="Part126_v0" vertex2="Part126_v2" vertex3="Part126_v3"/>
+ <triangular vertex1="Part126_v2" vertex2="Part126_v4" vertex3="Part126_v5"/>
+ <triangular vertex1="Part126_v3" vertex2="Part126_v2" vertex3="Part126_v5"/>
+ <triangular vertex1="Part126_v6" vertex2="Part126_v5" vertex3="Part126_v4"/>
+ <triangular vertex1="Part126_v7" vertex2="Part126_v6" vertex3="Part126_v4"/>
+ <triangular vertex1="Part126_v0" vertex2="Part126_v3" vertex3="Part126_v5"/>
+ <triangular vertex1="Part126_v0" vertex2="Part126_v5" vertex3="Part126_v6"/>
+ <triangular vertex1="Part126_v1" vertex2="Part126_v0" vertex3="Part126_v6"/>
+ <triangular vertex1="Part126_v1" vertex2="Part126_v6" vertex3="Part126_v7"/>
+ <triangular vertex1="Part126_v2" vertex2="Part126_v1" vertex3="Part126_v7"/>
+ <triangular vertex1="Part126_v2" vertex2="Part126_v7" vertex3="Part126_v4"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="Part126">
+ <materialref ref="Sci-Glass_1"/>
+ <solidref ref="Part126_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="Part126"/>
+ </setup>
+</gdml>

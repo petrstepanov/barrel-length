@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="Part135_v0" unit="mm" x="-805.0" y="-20.0" z="1209.40553732"/>
+ <position name="Part135_v1" unit="mm" x="-835.985675647" y="-20.7162473502" z="1184.10953162"/>
+ <position name="Part135_v2" unit="mm" x="-805.0" y="20.0" z="1209.40553732"/>
+ <position name="Part135_v3" unit="mm" x="-835.985675647" y="20.7162473501" z="1184.10953162"/>
+ <position name="Part135_v4" unit="mm" x="-1128.77240443" y="-27.8803315699" z="1532.45321883"/>
+ <position name="Part135_v5" unit="mm" x="-1128.77240443" y="27.8803315702" z="1532.45321883"/>
+ <position name="Part135_v6" unit="mm" x="-1087.69738938" y="26.9308647739" z="1565.98595722"/>
+ <position name="Part135_v7" unit="mm" x="-1087.69738938" y="-26.9308647737" z="1565.98595722"/>
+ </define>
+
+ <materials>
+   <material name="Sci-Glass_1" state="solid">
+       <D unit="g/cm3" value="4.22"/>
+       <fraction n="0.3875" ref="G4_Ba"/>
+       <fraction n="0.2146" ref="G4_Gd"/>
+       <fraction n="0.1369" ref="G4_Si"/>
+       <fraction n="0.261" ref="G4_O"/>
+   </material>
+ </materials>
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="Part135_solid">
+ <triangular vertex1="Part135_v0" vertex2="Part135_v1" vertex3="Part135_v2"/>
+ <triangular vertex1="Part135_v1" vertex2="Part135_v3" vertex3="Part135_v2"/>
+ <triangular vertex1="Part135_v1" vertex2="Part135_v4" vertex3="Part135_v5"/>
+ <triangular vertex1="Part135_v1" vertex2="Part135_v5" vertex3="Part135_v3"/>
+ <triangular vertex1="Part135_v2" vertex2="Part135_v3" vertex3="Part135_v6"/>
+ <triangular vertex1="Part135_v3" vertex2="Part135_v5" vertex3="Part135_v6"/>
+ <triangular vertex1="Part135_v1" vertex2="Part135_v0" vertex3="Part135_v7"/>
+ <triangular vertex1="Part135_v1" vertex2="Part135_v7" vertex3="Part135_v4"/>
+ <triangular vertex1="Part135_v5" vertex2="Part135_v4" vertex3="Part135_v7"/>
+ <triangular vertex1="Part135_v5" vertex2="Part135_v7" vertex3="Part135_v6"/>
+ <triangular vertex1="Part135_v6" vertex2="Part135_v0" vertex3="Part135_v2"/>
+ <triangular vertex1="Part135_v7" vertex2="Part135_v0" vertex3="Part135_v6"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="Part135">
+ <materialref ref="Sci-Glass_1"/>
+ <solidref ref="Part135_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="Part135"/>
+ </setup>
+</gdml>

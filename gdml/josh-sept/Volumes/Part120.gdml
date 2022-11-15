@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="Part120_v0" unit="mm" x="-1253.89607587" y="30.9883129466" z="-421.601741257"/>
+ <position name="Part120_v1" unit="mm" x="-1236.42425477" y="30.6764167208" z="-477.354390179"/>
+ <position name="Part120_v2" unit="mm" x="-1253.89607587" y="-30.9883129466" z="-421.601741257"/>
+ <position name="Part120_v3" unit="mm" x="-1236.42425477" y="-30.6764167208" z="-477.354390179"/>
+ <position name="Part120_v4" unit="mm" x="-805.0" y="-20.0" z="-332.499311811"/>
+ <position name="Part120_v5" unit="mm" x="-816.96163169" y="-20.2135317068" z="-294.329698671"/>
+ <position name="Part120_v6" unit="mm" x="-805.0" y="20.0" z="-332.499311811"/>
+ <position name="Part120_v7" unit="mm" x="-816.96163169" y="20.2135317068" z="-294.329698671"/>
+ </define>
+
+ <materials>
+   <material name="Sci-Glass_1" state="solid">
+       <D unit="g/cm3" value="4.22"/>
+       <fraction n="0.3875" ref="G4_Ba"/>
+       <fraction n="0.2146" ref="G4_Gd"/>
+       <fraction n="0.1369" ref="G4_Si"/>
+       <fraction n="0.261" ref="G4_O"/>
+   </material>
+ </materials>
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="Part120_solid">
+ <triangular vertex1="Part120_v0" vertex2="Part120_v1" vertex3="Part120_v2"/>
+ <triangular vertex1="Part120_v1" vertex2="Part120_v3" vertex3="Part120_v2"/>
+ <triangular vertex1="Part120_v3" vertex2="Part120_v4" vertex3="Part120_v5"/>
+ <triangular vertex1="Part120_v3" vertex2="Part120_v5" vertex3="Part120_v2"/>
+ <triangular vertex1="Part120_v6" vertex2="Part120_v3" vertex3="Part120_v1"/>
+ <triangular vertex1="Part120_v4" vertex2="Part120_v3" vertex3="Part120_v6"/>
+ <triangular vertex1="Part120_v7" vertex2="Part120_v1" vertex3="Part120_v0"/>
+ <triangular vertex1="Part120_v6" vertex2="Part120_v1" vertex3="Part120_v7"/>
+ <triangular vertex1="Part120_v7" vertex2="Part120_v5" vertex3="Part120_v4"/>
+ <triangular vertex1="Part120_v6" vertex2="Part120_v7" vertex3="Part120_v4"/>
+ <triangular vertex1="Part120_v2" vertex2="Part120_v5" vertex3="Part120_v7"/>
+ <triangular vertex1="Part120_v2" vertex2="Part120_v7" vertex3="Part120_v0"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="Part120">
+ <materialref ref="Sci-Glass_1"/>
+ <solidref ref="Part120_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="Part120"/>
+ </setup>
+</gdml>
