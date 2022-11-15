@@ -26,15 +26,13 @@ G01DetectorConstruction::G01DetectorConstruction(G4GDMLParser *parser) {
 G4VPhysicalVolume* G01DetectorConstruction::Construct() {
   ///////////////////////////////////////////////////////////////////////
   //
-  // Example how to retrieve Auxiliary Information
-  //
-
+  // Set Materials
   G4cout << std::endl;
 
   const G4LogicalVolumeStore *lvs = G4LogicalVolumeStore::GetInstance();
   std::vector<G4LogicalVolume*>::const_iterator lvciter;
   for (G4LogicalVolume *volume : *lvs) {
-    G4cout << "Logical Volume: " << volume->GetName() << G4endl;
+    G4cout << "Logical volume name: " << volume->GetName() << G4endl;
 
     G4GDMLAuxListType auxInfo = fParser->GetVolumeAuxiliaryInformation(volume);
     if (auxInfo.size() > 0)
