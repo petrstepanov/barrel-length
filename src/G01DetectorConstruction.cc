@@ -1,7 +1,10 @@
 #include "G01DetectorConstruction.hh"
-#include "G4MultiFunctionalDetector.hh"
-#include "G4LogicalVolumeStore.hh"
-//#include "G4LogicalVolume.hh"
+#include "Materials.hh"
+
+#include <G4MultiFunctionalDetector.hh>
+#include <G4LogicalVolumeStore.hh>
+#include <G4VisAttributes.hh>
+#include <G4Colour.hh>
 
 void print_aux(const G4GDMLAuxListType *auxInfoList, G4String prepend = "|") {
   for (std::vector<G4GDMLAuxStructType>::const_iterator iaux = auxInfoList->begin(); iaux != auxInfoList->end();
@@ -24,20 +27,27 @@ G01DetectorConstruction::G01DetectorConstruction(G4GDMLParser *parser) {
 }
 
 G4VPhysicalVolume* G01DetectorConstruction::Construct() {
-  ///////////////////////////////////////////////////////////////////////
-  //
-  // Set Materials
-  G4cout << std::endl;
+  // Set material for volumes imported from GDML
+  G4VisAttributes* crystalVisAttr = new G4VisAttributes();
+  crystalVisAttr->SetColour(0, 1, 1); // cyan
 
   const G4LogicalVolumeStore *lvs = G4LogicalVolumeStore::GetInstance();
-  std::vector<G4LogicalVolume*>::const_iterator lvciter;
   for (G4LogicalVolume *volume : *lvs) {
     G4cout << "Logical volume name: " << volume->GetName() << G4endl;
+    if (volume->GetName() == "World") {
+      G4Material *material = Materials::getInstance()->getMaterial("G4_AIR");
+      volume->SetMaterial(material);
+    } else {
+      G4Material *material = Materials::getInstance()->getMaterial("SciGlass-40-L");
+      volume->SetMaterial(material);
+      volume->SetVisAttributes(crystalVisAttr);
+    }
 
-    G4GDMLAuxListType auxInfo = fParser->GetVolumeAuxiliaryInformation(volume);
-    if (auxInfo.size() > 0)
-      G4cout << "Auxiliary Information is found." << G4endl;
-    print_aux(&auxInfo);
+    // Print auxilary info:
+    // G4GDMLAuxListType auxInfo = fParser->GetVolumeAuxiliaryInformation(volume);
+    // if (auxInfo.size() > 0)
+    //   G4cout << "Auxiliary Information is found." << G4endl;
+    // print_aux (&auxInfo);
   }
 
   // now the 'global' auxiliary info
@@ -47,12 +57,6 @@ G4VPhysicalVolume* G01DetectorConstruction::Construct() {
 
   print_aux(fParser->GetAuxList());
 
-  G4cout << std::endl;
-
-  //
-  // End of Auxiliary Information block
-  //
-  ////////////////////////////////////////////////////////////////////////
   return fWorld;
 }
 

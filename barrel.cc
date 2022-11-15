@@ -130,6 +130,9 @@ int main(int argc, char **argv) {
         G4TransportationManager::GetTransportationManager()->GetNavigatorForTracking()->GetWorldVolume()->GetLogicalVolume());
   }
 
+  // Set macros folder path
+  UImanager->ApplyCommand("/control/macroPath macros");
+
   if (argc == 4)   // batch mode
   {
     G4String command = "/control/execute ";
@@ -138,7 +141,7 @@ int main(int argc, char **argv) {
   } else           // interactive mode
   {
     G4UIExecutive *ui = new G4UIExecutive(argc, argv);
-    UImanager->ApplyCommand("/control/execute /macros/vis.mac");
+    UImanager->ApplyCommand("/control/execute vis.mac");
     ui->SessionStart();
     delete ui;
   }

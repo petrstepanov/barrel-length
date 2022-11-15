@@ -29,6 +29,9 @@
 # Specify zoom value:
 /vis/viewer/zoom .4
 
+# Set white background
+/vis/viewer/set/background white
+
 # Specify style (surface or wireframe):
 #/vis/viewer/set/style wireframe
 

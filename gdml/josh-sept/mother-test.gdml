@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+    <define>
+        <position name="center" x="0" y="0" z="0" />
+        <rotation name="identity" x="0" y="0" z="0" />
+    </define>
+
+    <materials>
+        <element name="Vacuum_el" formula="Hv" Z="1">
+            <atom value="1.008" />
+        </element>
+        <material name="Vacuum_ref">
+            <D value="0.0000000000000000000001" unit="mg/cm3" />
+            <fraction n="1.0" ref="Vacuum_el" />
+        </material>
+    </materials>
+
+    <solids>
+        <box name="WorldBox" x="8.0" y=".0.5" z="3.0" lunit="m" />
+    </solids>
+
+    <structure>
+        <volume name="World">
+            <materialref ref="Vacuum_ref" />
+            <solidref ref="WorldBox" />
+            <!-- https://geant4-forum.web.cern.ch/t/gdml-modules-help/496/4 -->
+            <!-- Note that the call to the child file in the parent is a relative path from the executable, not from the the location of the gdml. -->
+            <physvol>
+                <file name="gdml/josh-sept/Volumes/Part12.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/josh-sept/Volumes/Part141.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+        </volume>
+    </structure>
+    
+    <setup name="Default" version="1.0">
+        <world ref="World" />
+    </setup>
+</gdml>
