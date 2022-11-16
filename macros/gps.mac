@@ -2,7 +2,9 @@
 /gps/particle e-
 /gps/ene/mono 10 GeV
 /gps/ang/type iso
-/gps/pos/centre 0 0 0 mm
+
+# Estimated in Penpot
+/gps/pos/centre 0.926 0 0 m
 
 /gps/ang/mintheta 0 deg
 /gps/ang/maxtheta 180 deg

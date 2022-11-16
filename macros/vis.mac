@@ -24,6 +24,8 @@
 
 #------------------------------------------------------
 
+# /vis/viewer/set/viewpointVector 0.5 -1 1
+
 # Specify style (surface or wireframe):
 # /vis/viewer/set/style wireframe
 
@@ -36,7 +38,7 @@
 # /vis/verbose warnings
 
 # Specify zoom value:
-# /vis/viewer/zoom 1
+# /vis/viewer/zoomTo 2
 
 # Set white background
 # /vis/viewer/set/background white
