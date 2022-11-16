@@ -1,0 +1,8 @@
+# Initialize kernel
+/run/initialize
+
+# GPS
+/control/execute gps.mac
+
+# Visualization setting
+/control/execute vis.mac

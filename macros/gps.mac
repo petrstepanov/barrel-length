@@ -1,0 +1,11 @@
+/gps/pos/type Point
+/gps/particle e-
+/gps/ene/mono 10 GeV
+/gps/ang/type iso
+/gps/pos/centre 0 0 0 mm
+
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta 180 deg
+
+/gps/ang/minphi 0 deg
+/gps/ang/maxphi 0 deg

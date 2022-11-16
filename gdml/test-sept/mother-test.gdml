@@ -17,7 +17,7 @@
     </materials>
 
     <solids>
-        <box name="WorldBox" x="8.0" y=".0.5" z="3.0" lunit="m" />
+        <box name="WorldBox" x="5.0" y="1.0" z="8.0" lunit="m" />
     </solids>
 
     <structure>
@@ -27,12 +27,12 @@
             <!-- https://geant4-forum.web.cern.ch/t/gdml-modules-help/496/4 -->
             <!-- Note that the call to the child file in the parent is a relative path from the executable, not from the the location of the gdml. -->
             <physvol>
-                <file name="gdml/josh-sept/Volumes/Part12.gdml" />
+                <file name="gdml/test-sept/Volumes/Part12.gdml" />
                 <positionref ref="center" />
                 <rotationref ref="identity" />
             </physvol>
             <physvol>
-                <file name="gdml/josh-sept/Volumes/Part141.gdml" />
+                <file name="gdml/test-sept/Volumes/Part141.gdml" />
                 <positionref ref="center" />
                 <rotationref ref="identity" />
             </physvol>

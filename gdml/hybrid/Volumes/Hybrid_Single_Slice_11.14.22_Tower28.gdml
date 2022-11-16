@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v0" unit="mm" x="-11.8009295556" y="0.594245495371" z="477.790115108"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v1" unit="mm" x="5.94382006514" y="1.0" z="513.638739362"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v2" unit="mm" x="-349.305653566" y="-6.94473661483" z="697.625280348"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v3" unit="mm" x="-373.523941002" y="-7.49851615139" z="648.698566537"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v4" unit="mm" x="-349.305653566" y="47.4442950931" z="697.625280348"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v5" unit="mm" x="-373.523941002" y="47.9980746296" z="648.698566537"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v6" unit="mm" x="5.94382006514" y="39.4995584782" z="513.638739362"/>
+ <position name="Hybrid_Single_Slice_11.14.22_Tower28_v7" unit="mm" x="-11.8009295556" y="39.9053129829" z="477.790115108"/>
+ </define>
+
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="Hybrid_Single_Slice_11.14.22_Tower28_solid">
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v0" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v1" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v2"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v0" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v2" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v3"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v3" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v2" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v4"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v3" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v4" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v5"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v4" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v6" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v7"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v5" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v4" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v7"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v3" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v5" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v0"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v0" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v5" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v7"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v0" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v7" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v1"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v1" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v7" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v6"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v1" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v4" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v2"/>
+ <triangular vertex1="Hybrid_Single_Slice_11.14.22_Tower28_v6" vertex2="Hybrid_Single_Slice_11.14.22_Tower28_v4" vertex3="Hybrid_Single_Slice_11.14.22_Tower28_v1"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="Hybrid_Single_Slice_11.14.22_Tower28">
+ <materialref ref="G4_Si"/>
+ <solidref ref="Hybrid_Single_Slice_11.14.22_Tower28_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="Hybrid_Single_Slice_11.14.22_Tower28"/>
+ </setup>
+</gdml>

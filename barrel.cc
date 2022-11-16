@@ -59,36 +59,26 @@
 // --------------------------------------------------------------
 
 int main(int argc, char **argv) {
-  G4cout << G4endl;
   G4cout << "Usage: barrel <intput_gdml_file:mandatory>" << " <output_gdml_file:optional>" << G4endl;
-  G4cout << G4endl;
 
-  if (argc < 2) {
-    G4cout << "Error! Mandatory input file is not specified!" << G4endl;
-    G4cout << G4endl;
+  if (argc <= 1) {
+    G4cout << "Error! GDML input file is not specified!" << G4endl;
     return -1;
   }
 
   G4GDMLParser* parser = new G4GDMLParser();
 
-// Uncomment the following if wish to avoid names stripping
-// parser->SetStripFlag(false);
+  // Uncomment below to avoid names stripping
+  // parser->SetStripFlag(false);
 
   parser->SetOverlapCheck(true);
   parser->Read(argv[1]);
 
-  if (argc > 4) {
-    G4cout << "Error! Too many arguments!" << G4endl;
-    G4cout << G4endl;
-    return -1;
-  }
-
-  auto *runManager = G4RunManagerFactory::CreateRunManager();
+  auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
 
   runManager->SetUserInitialization(new G01DetectorConstruction(parser));
   runManager->SetUserInitialization(new FTFP_BERT);
   runManager->SetUserInitialization(new G01ActionInitialization());
-
   runManager->Initialize();
 
   // Initialize visualization
@@ -98,50 +88,20 @@ int main(int argc, char **argv) {
   // Get the pointer to the User Interface manager
   G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
-  runManager->BeamOn(0);
-
-  // example of writing out
-
-  if (argc >= 3) {
-    /*
-     G4GDMLAuxStructType mysubaux = {"mysubtype", "mysubvalue", "mysubunit", 0};
-     G4GDMLAuxListType* myauxlist = new G4GDMLAuxListType();
-     myauxlist->push_back(mysubaux);
-
-     G4GDMLAuxStructType myaux = {"mytype", "myvalue", "myunit", myauxlist};
-     parser->AddAuxiliary(myaux);
-
-
-     // example of setting auxiliary info for world volume
-     // (can be set for any volume)
-
-     G4GDMLAuxStructType mylocalaux = {"sometype", "somevalue", "someunit", 0};
-
-     parser->AddVolumeAuxiliary(mylocalaux,
-     G4TransportationManager::GetTransportationManager()
-     ->GetNavigatorForTracking()->GetWorldVolume()->GetLogicalVolume());
-     */
-
-    parser->SetRegionExport(true);
-    //     parser->SetEnergyCutsExport(true);
-    //     parser->SetOutputFileOverwrite(true);
-    parser->Write(
-        argv[2],
-        G4TransportationManager::GetTransportationManager()->GetNavigatorForTracking()->GetWorldVolume()->GetLogicalVolume());
-  }
-
   // Set macros folder path
   UImanager->ApplyCommand("/control/macroPath macros");
 
-  if (argc == 4)   // batch mode
-  {
+  // Process macro or start UI session
+  if (argc > 2) {
+    // Batch mode
     G4String command = "/control/execute ";
-    G4String fileName = argv[3];
+    G4String fileName = argv[2];
     UImanager->ApplyCommand(command + fileName);
-  } else           // interactive mode
-  {
+  }
+  else {
+    // Interactive mode
     G4UIExecutive *ui = new G4UIExecutive(argc, argv);
-    UImanager->ApplyCommand("/control/execute vis.mac");
+    UImanager->ApplyCommand("/control/execute init_vis.mac");
     ui->SessionStart();
     delete ui;
   }

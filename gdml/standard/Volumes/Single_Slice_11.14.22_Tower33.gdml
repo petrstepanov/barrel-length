@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="Single_Slice_11.14.22_Tower33_v0" unit="mm" x="-11.8009295556" y="0.594245495371" z="477.790115108"/>
+ <position name="Single_Slice_11.14.22_Tower33_v1" unit="mm" x="5.94382006514" y="1.0" z="513.638739362"/>
+ <position name="Single_Slice_11.14.22_Tower33_v2" unit="mm" x="-398.152456191" y="-8.03713789937" z="722.923429734"/>
+ <position name="Single_Slice_11.14.22_Tower33_v3" unit="mm" x="-423.260855076" y="-8.61127087782" z="672.198478609"/>
+ <position name="Single_Slice_11.14.22_Tower33_v4" unit="mm" x="-398.152456191" y="48.5366963776" z="722.923429734"/>
+ <position name="Single_Slice_11.14.22_Tower33_v5" unit="mm" x="-423.260855076" y="49.1108293561" z="672.198478609"/>
+ <position name="Single_Slice_11.14.22_Tower33_v6" unit="mm" x="5.94382006514" y="39.4995584782" z="513.638739362"/>
+ <position name="Single_Slice_11.14.22_Tower33_v7" unit="mm" x="-11.8009295556" y="39.9053129829" z="477.790115108"/>
+ </define>
+
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="Single_Slice_11.14.22_Tower33_solid">
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v0" vertex2="Single_Slice_11.14.22_Tower33_v1" vertex3="Single_Slice_11.14.22_Tower33_v2"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v0" vertex2="Single_Slice_11.14.22_Tower33_v2" vertex3="Single_Slice_11.14.22_Tower33_v3"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v3" vertex2="Single_Slice_11.14.22_Tower33_v2" vertex3="Single_Slice_11.14.22_Tower33_v4"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v3" vertex2="Single_Slice_11.14.22_Tower33_v4" vertex3="Single_Slice_11.14.22_Tower33_v5"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v4" vertex2="Single_Slice_11.14.22_Tower33_v6" vertex3="Single_Slice_11.14.22_Tower33_v7"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v5" vertex2="Single_Slice_11.14.22_Tower33_v4" vertex3="Single_Slice_11.14.22_Tower33_v7"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v3" vertex2="Single_Slice_11.14.22_Tower33_v5" vertex3="Single_Slice_11.14.22_Tower33_v0"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v0" vertex2="Single_Slice_11.14.22_Tower33_v5" vertex3="Single_Slice_11.14.22_Tower33_v7"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v0" vertex2="Single_Slice_11.14.22_Tower33_v7" vertex3="Single_Slice_11.14.22_Tower33_v1"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v1" vertex2="Single_Slice_11.14.22_Tower33_v7" vertex3="Single_Slice_11.14.22_Tower33_v6"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v6" vertex2="Single_Slice_11.14.22_Tower33_v4" vertex3="Single_Slice_11.14.22_Tower33_v2"/>
+ <triangular vertex1="Single_Slice_11.14.22_Tower33_v6" vertex2="Single_Slice_11.14.22_Tower33_v2" vertex3="Single_Slice_11.14.22_Tower33_v1"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="Single_Slice_11.14.22_Tower33">
+ <materialref ref="G4_Si"/>
+ <solidref ref="Single_Slice_11.14.22_Tower33_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="Single_Slice_11.14.22_Tower33"/>
+ </setup>
+</gdml>

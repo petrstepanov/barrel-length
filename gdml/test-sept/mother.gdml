@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+    <define>
+        <position name="center" x="0" y="0" z="0" />
+        <rotation name="identity" x="0" y="0" z="0" />
+    </define>
+
+    <materials>
+        <element name="Vacuum_el" formula="Hv" Z="1">
+            <atom value="1.008" />
+        </element>
+        <material name="Vacuum_ref">
+            <D value="0.0000000000000000000001" unit="mg/cm3" />
+            <fraction n="1.0" ref="Vacuum_el" />
+        </material>
+    </materials>
+
+    <solids>
+        <box name="WorldBox" x="5.0" y="1.0" z="8.0" lunit="m" />
+    </solids>
+
+    <structure>
+        <volume name="World">
+            <materialref ref="Vacuum_ref" />
+            <solidref ref="WorldBox" />
+            <!-- https://geant4-forum.web.cern.ch/t/gdml-modules-help/496/4 -->
+            <!-- Note that the call to the child file in the parent is a relative path from the executable, not from the the location of the gdml. -->
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part11.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part12.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part13.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part14.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part15.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part16.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part17.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part18.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part19.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part110.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part111.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part112.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part113.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part114.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part115.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part116.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part117.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part118.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part119.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part120.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part121.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part122.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part123.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part124.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part125.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part126.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part127.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part128.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part129.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part130.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part131.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part132.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part133.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part134.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part135.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part136.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part137.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part138.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part139.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part140.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part141.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part142.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part143.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part144.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part145.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part146.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part147.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part148.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part149.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part150.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part151.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part152.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part153.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part154.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part155.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part156.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part157.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part158.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part159.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part160.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part161.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part162.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part163.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part164.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part165.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/test-sept/Volumes/Part166.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+        </volume>
+    </structure>
+    
+    <setup name="Default" version="1.0">
+        <world ref="World" />
+    </setup>
+</gdml>
