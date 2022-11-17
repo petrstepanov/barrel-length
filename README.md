@@ -1,6 +1,7 @@
 # A study for the EIC barrel Panda calorimeter design
 
 ![Standard and hybrid barrel sleeve designs](https://github.com/petrstepanov/barrel-length/blob/main/resources/design.png?raw=true "Standard and hybrid barrel sleeve designs")
+
 <center><i>Standard and hybrid barrel sleeve designs.</i></center>
 
 Project goal is to determine the discrepances between energy deposition in two different detector barrel geometries.
