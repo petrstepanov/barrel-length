@@ -39,6 +39,8 @@
 #include <G4UnitsTable.hh>
 #include <G4SystemOfUnits.hh>
 #include <G4AnalysisManager.hh>
+#include <chrono>
+#include <iostream>
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -83,8 +85,18 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
 
-  // Open an output file
-  G4String fileName = "edep.root";
+  // Open an output file "edep-####.root"
+  G4String fileName = "edep-";
+
+  auto t = std::time(nullptr);
+  auto tm = *std::localtime(&t);
+
+  std::ostringstream oss;
+  oss << std::put_time(&tm, "%d-%m-%Y-%H-%M-%S");
+  fileName += oss.str();
+
+  fileName += ".root";
+
   analysisManager->OpenFile(fileName);
 
   // Create ntuple

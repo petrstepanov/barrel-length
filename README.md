@@ -45,4 +45,10 @@ To obtain results with high statistics, simulation should be preferrably run on 
 barrell ./gdml/standard/mother.gdml ./macros/batch.mac
 ```
 
+Two SLURM scripts are added to facilitate the program run on the supercomputer environment:
+```
+sbatch ./slurm/standard.sh
+sbatch ./slurm/hybrid.sh
+```
+
 ## Results
