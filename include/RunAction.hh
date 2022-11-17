@@ -23,30 +23,33 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-/// \file persistency/gdml/G01/src/G01PrimaryGeneratorAction.cc
-/// \brief Implementation of the G01PrimaryGeneratorAction class
+//
+/// \file RunAction.hh
+/// \brief Definition of the B1::RunAction class
 
-#include "G01PrimaryGeneratorAction.hh"
-#include "G4Event.hh"
-#include "G4ParticleGun.hh"
-#include "G4ParticleTable.hh"
-#include "G4ParticleDefinition.hh"
-#include "G4SystemOfUnits.hh"
+#ifndef B1RunAction_h
+#define B1RunAction_h 1
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+#include "G4UserRunAction.hh"
+#include "G4Accumulable.hh"
+#include "globals.hh"
 
-G01PrimaryGeneratorAction::G01PrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction(), fParticleGun(0) {
-  fParticleGun = new G4GeneralParticleSource();
-}
+class G4Run;
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+class RunAction : public G4UserRunAction
+{
+  public:
+    RunAction();
+    ~RunAction() override;
 
-G01PrimaryGeneratorAction::~G01PrimaryGeneratorAction() {
-  delete fParticleGun;
-}
+    void BeginOfRunAction(const G4Run*) override;
+    void EndOfRunAction(const G4Run*) override;
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+    void AddEnergyPerEvent(G4double energyPerEvent);
 
-void G01PrimaryGeneratorAction::GeneratePrimaries(G4Event *anEvent) {
-  fParticleGun->GeneratePrimaryVertex(anEvent);
-}
+  private:
+    G4Accumulable<G4double> depositedEnergies = 0.;
+};
+
+#endif
+

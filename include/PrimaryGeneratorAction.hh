@@ -23,15 +23,15 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-/// \file persistency/gdml/G01/include/G01PrimaryGeneratorAction.hh
-/// \brief Definition of the G01PrimaryGeneratorAction class
+/// \file persistency/gdml/G01/include/PrimaryGeneratorAction.hh
+/// \brief Definition of the PrimaryGeneratorAction class
 //
 //
 //
 //
 
-#ifndef _G01PRIMARYGENERATORACTION_H_
-#define _G01PRIMARYGENERATORACTION_H_
+#ifndef _PrimaryGeneratorAction_H_
+#define _PrimaryGeneratorAction_H_
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "G4GeneralParticleSource.hh"
@@ -42,18 +42,21 @@ class G4ParticleGun;
 
 /// Minimal primary generator action to demonstrate the use of GDML geometries
 
-class G01PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
-{
+class PrimaryGeneratorAction: public G4VUserPrimaryGeneratorAction {
   public:
+    PrimaryGeneratorAction();
+    ~PrimaryGeneratorAction();
 
-    G01PrimaryGeneratorAction();
-   ~G01PrimaryGeneratorAction();
+    // method to access particle gun
+    G4GeneralParticleSource* GetParticleGun() const {
+      return fParticleGun;
+    }
 
-   virtual void GeneratePrimaries(G4Event* anEvent);
+    virtual void GeneratePrimaries(G4Event *anEvent);
 
   private:
 
-   G4GeneralParticleSource* fParticleGun;
+    G4GeneralParticleSource *fParticleGun;
 };
 
 #endif

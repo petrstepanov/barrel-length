@@ -24,28 +24,35 @@
 // ********************************************************************
 //
 //
-/// \file G01ActionInitialization.hh
-/// \brief Definition of the G01ActionInitialization class
+/// \file EventAction.hh
+/// \brief Definition of the B1::EventAction class
 
-#ifndef G01ActionInitialization_h
-#define G01ActionInitialization_h 1
+#ifndef EventAction_h
+#define EventAction_h 1
 
-#include "G4VUserActionInitialization.hh"
+#include "G4UserEventAction.hh"
+#include "globals.hh"
 
-/// Action initialization class.
+/// Event action class
+///
 
-class G01ActionInitialization : public G4VUserActionInitialization
+class RunAction;
+
+class EventAction : public G4UserEventAction
 {
   public:
-    G01ActionInitialization();
-    virtual ~G01ActionInitialization();
+    EventAction(RunAction* runAction);
+    ~EventAction() override;
 
-    virtual void BuildForMaster() const;
-    virtual void Build() const;
+    void BeginOfEventAction(const G4Event* event) override;
+    void EndOfEventAction(const G4Event* event) override;
+
+  private:
+    RunAction* fRunAction = nullptr;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #endif
 
-    
+

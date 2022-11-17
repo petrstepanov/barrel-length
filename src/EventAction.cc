@@ -24,34 +24,68 @@
 // ********************************************************************
 //
 //
-/// \file G01ActionInitialization.cc
-/// \brief Implementation of the G01ActionInitialization class
+/// \file EventAction.cc
+/// \brief Implementation of the B1::EventAction class
 
-#include "G01ActionInitialization.hh"
-#include "G01PrimaryGeneratorAction.hh"
+#include "EventAction.hh"
+#include "RunAction.hh"
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-G01ActionInitialization::G01ActionInitialization()
- : G4VUserActionInitialization()
-{}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-G01ActionInitialization::~G01ActionInitialization()
-{}
+// #include <GEvent.hh>
+#include <G4RunManager.hh>
+#include <G4AnalysisManager.hh>
+#include <G4SDManager.hh>
+#include <G4THitsMap.hh>
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void G01ActionInitialization::BuildForMaster() const
-{
+EventAction::EventAction(RunAction *runAction) : fRunAction(runAction) {
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void G01ActionInitialization::Build() const
-{
-  SetUserAction(new G01PrimaryGeneratorAction);
-}  
+EventAction::~EventAction() {
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void EventAction::BeginOfEventAction(const G4Event*) {
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void EventAction::EndOfEventAction(const G4Event *event) {
+  // Get hits colection
+  G4HCofThisEvent *HCE = event->GetHCofThisEvent();
+  if (!HCE)
+    return;
+
+  // Obtain the hits collection ID
+  G4int eDepCollectionId = G4SDManager::GetSDMpointer()->GetCollectionID("crystals/edep");
+
+  // Get event map
+  G4THitsMap<G4double> *eventMap = static_cast<G4THitsMap<G4double>*>(HCE->GetHC(eDepCollectionId));
+
+  //
+  G4double depositedEnergyPerEvent = 0;
+  std::map<G4int, G4double*>::iterator itr;
+
+  G4cout << "Event number: " << event->GetEventID() << G4endl;
+  for (itr = eventMap->GetMap()->begin(); itr != eventMap->GetMap()->end(); itr++) {
+    G4int copyNumber = itr->first;
+    depositedEnergyPerEvent += *(itr->second);
+    G4cout << "  Crystal Scorer, copy N " << copyNumber << ": total E " << depositedEnergyPerEvent << " MeV." << G4endl;
+  }
+
+  // Accumulate statistics in run action
+  fRunAction->AddEnergyPerEvent(depositedEnergyPerEvent);
+
+  // Populate analysis manager
+  G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
+  analysisManager->FillNtupleDColumn(0, depositedEnergyPerEvent);
+  analysisManager->FillNtupleIColumn(1, event->GetEventID());
+  analysisManager->AddNtupleRow();
+
+  analysisManager->FillH1(event->GetEventID(), depositedEnergyPerEvent);
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

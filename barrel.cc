@@ -34,27 +34,17 @@
 //
 // --------------------------------------------------------------
 
-#include <vector>
+#include "ActionInitialization.hh"
+#include "DetectorConstruction.hh"
+#include "PrimaryGeneratorAction.hh"
 
-#include "G4Types.hh"
-
-#include "G4RunManagerFactory.hh"
-
-#include "G4UImanager.hh"
-
-#include "G4LogicalVolumeStore.hh"
-#include "G4TransportationManager.hh"
-
-#include "G01PrimaryGeneratorAction.hh"
-#include "G01DetectorConstruction.hh"
-#include "G01ActionInitialization.hh"
-
-#include "FTFP_BERT.hh"
-
-#include "G4VisExecutive.hh"
-#include "G4UIExecutive.hh"
-
-#include "G4GDMLParser.hh"
+#include <G4Types.hh>
+#include <G4RunManagerFactory.hh>
+#include <G4UImanager.hh>
+#include <FTFP_BERT.hh>
+#include <G4VisExecutive.hh>
+#include <G4UIExecutive.hh>
+#include <G4GDMLParser.hh>
 
 // --------------------------------------------------------------
 
@@ -76,9 +66,9 @@ int main(int argc, char **argv) {
 
   auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
 
-  runManager->SetUserInitialization(new G01DetectorConstruction(parser));
-  runManager->SetUserInitialization(new FTFP_BERT);
-  runManager->SetUserInitialization(new G01ActionInitialization());
+  runManager->SetUserInitialization(new DetectorConstruction(parser));
+  runManager->SetUserInitialization(new FTFP_BERT());
+  runManager->SetUserInitialization(new ActionInitialization());
   runManager->Initialize();
 
   // Initialize visualization

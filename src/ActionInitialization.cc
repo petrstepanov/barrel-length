@@ -23,34 +23,42 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
-/// \file persistency/gdml/G01/include/G01DetectorConstruction.hh
-/// \brief Definition of the G01DetectorConstruction class
 //
-//
-//
-//
+/// \file ActionInitialization.cc
+/// \brief Implementation of the ActionInitialization class
 
-#ifndef _G01DETECTORCONSTRUCTION_H_
-#define _G01DETECTORCONSTRUCTION_H_
+#include "ActionInitialization.hh"
+#include "PrimaryGeneratorAction.hh"
+#include "RunAction.hh"
+#include "EventAction.hh"
 
-#include "G4VUserDetectorConstruction.hh"
-#include "G4GDMLParser.hh"
-#include "G4VPhysicalVolume.hh"
-#include "G4VPrimitiveScorer.hh"
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-/// Detector construction allowing to use the geometry read from the GDML file
+ActionInitialization::ActionInitialization() : G4VUserActionInitialization() {
+}
 
-class G01DetectorConstruction: public G4VUserDetectorConstruction {
-  public:
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-    G01DetectorConstruction(G4GDMLParser *parser);
-    virtual G4VPhysicalVolume* Construct();
-    virtual void ConstructSDandField();
+ActionInitialization::~ActionInitialization() {
+}
 
-  private:
-    G4GDMLParser* fParser;
-    G4VPhysicalVolume *fWorld;
-    // G4VPrimitiveScorer *fEDepScorerCrystal;
-};
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#endif
+void ActionInitialization::BuildForMaster() const {
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void ActionInitialization::Build() const {
+  SetUserAction(new PrimaryGeneratorAction);
+
+  RunAction *runAction = new RunAction();
+  SetUserAction(runAction);
+
+  EventAction *eventAction = new EventAction(runAction);
+  SetUserAction(eventAction);
+
+  // SetUserAction(new SteppingAction(eventAction));
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

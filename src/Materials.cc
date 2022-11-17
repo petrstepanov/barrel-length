@@ -5,26 +5,9 @@
  *      Author: petrstepanov
  */
 
+#include "Materials.hh"
+#include <G4NistManager.hh>
 #include <G4SystemOfUnits.hh>
-#include <G4NistManager.hh>
-#include <G4ios.hh>
-#include <G4MaterialPropertiesTable.hh>
-#include <G4NistManager.hh>
-#include <G4PhysicsVector.hh>
-#include <G4String.hh>
-#include <G4Types.hh>
-#include <G4Utils.hh>
-#include <Materials.hh>
-#include <stdlib.h>
-#include <algorithm>
-#include <cassert>
-#include <cmath>
-#include <fstream>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <string>
 
 Materials *Materials::fgInstance = nullptr;
 
