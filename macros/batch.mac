@@ -5,7 +5,7 @@
 /control/execute include_gps.mac
 
 # Visualization setting
-/vis/ASCIITree/verbose 13
+/vis/ASCIITree/verbose 0
 /vis/drawTree
 
-/run/beamOn 1000000
+/run/beamOn 100000
