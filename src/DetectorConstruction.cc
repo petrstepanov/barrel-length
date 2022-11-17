@@ -30,9 +30,10 @@ DetectorConstruction::DetectorConstruction(G4GDMLParser *parser) {
 }
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
-  // Set material for volumes imported from GDML
+  // Define crystals visual arttributes
   G4VisAttributes *crystalVisAttr = new G4VisAttributes();
-  crystalVisAttr->SetColour(0, 1, 1); // cyan
+  crystalVisAttr->SetForceSolid();
+  crystalVisAttr->SetColour(0, 1, 1, 0.2); // cyan
 
   const G4LogicalVolumeStore *lvs = G4LogicalVolumeStore::GetInstance();
   for (G4LogicalVolume *volume : *lvs) {
@@ -41,12 +42,22 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
       // Volume is world
       G4Material *material = Materials::getInstance()->getMaterial("G4_AIR");
       volume->SetMaterial(material);
+
+      // Visual attributes
+      G4VisAttributes *worldVisAttr = new G4VisAttributes();
+      worldVisAttr->SetVisibility();
+      worldVisAttr->SetForceWireframe();
+      worldVisAttr->SetColour(0.5, 0.5, 0.5);
+      volume->SetVisAttributes(worldVisAttr);
     } else {
       // Volume is crystal
       G4Material *material = Materials::getInstance()->getMaterial("SciGlass-40-L");
       volume->SetMaterial(material);
+
+      // Visual attributes
       volume->SetVisAttributes(crystalVisAttr);
-      // Remember volume to attach sensitive detector
+
+      // Remember volume to attach sensitive detector later
       crystalLogicalVolumes.push_back(volume);
     }
 
