@@ -63,8 +63,13 @@ copyFiles("${barel_gdml_files}")
 # Copy macro files
 
 file(GLOB_RECURSE barel_macro_files CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/macros/*.*)
-# message(STATUS "Found list of Geant4 Macros: ${glass_MACROS}")
 copyFiles("${barel_macro_files}")
+
+#----------------------------------------------------------------------------
+# Copy slurm scripts
+
+file(GLOB_RECURSE barel_slurm_files CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/slurm/*.*)
+copyFiles("${barel_slurm_files}")
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
