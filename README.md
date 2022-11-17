@@ -2,7 +2,7 @@
 
 Project goal is to determine the discrepances between energy deposition in two different detector barrel geometries.
 
-![Standard and hybrid barrel sleeve designs](https://github.com/petrstepanov/barrel-length/blob/main/resources/<img-path>?raw=true "Standard and hybrid barrel sleeve designs")
+![Standard and hybrid barrel sleeve designs](https://github.com/petrstepanov/barrel-length/blob/main/resources/design.png?raw=true "Standard and hybrid barrel sleeve designs")
 *Standard and hybrid barrel sleeve designs.*
 
 For the sake of simplicity the simulation is narrowed down from a 3D case to a 2D case:
