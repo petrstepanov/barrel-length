@@ -85,7 +85,7 @@ void EventAction::EndOfEventAction(const G4Event *event) {
   analysisManager->FillNtupleIColumn(1, event->GetEventID());
   analysisManager->AddNtupleRow();
 
-  analysisManager->FillH1(event->GetEventID(), depositedEnergyPerEvent);
+  // analysisManager->FillH1(event->GetEventID(), depositedEnergyPerEvent);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

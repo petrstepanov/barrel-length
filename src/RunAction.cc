@@ -74,7 +74,7 @@ RunAction::~RunAction() {
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RunAction::BeginOfRunAction(const G4Run* run) {
+void RunAction::BeginOfRunAction(const G4Run*) {
   // Inform the runManager to save random number seed
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
 
@@ -87,14 +87,11 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
 
   // Open an output file "edep-####.root"
   G4String fileName = "edep-";
-
   auto t = std::time(nullptr);
   auto tm = *std::localtime(&t);
-
   std::ostringstream oss;
   oss << std::put_time(&tm, "%d-%m-%Y-%H-%M-%S");
   fileName += oss.str();
-
   fileName += ".root";
 
   analysisManager->OpenFile(fileName);
@@ -104,7 +101,7 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
   analysisManager->CreateNtupleDColumn("edep");
   analysisManager->CreateNtupleIColumn("eventNumber");
   analysisManager->FinishNtuple();
-  analysisManager->CreateH1("edepHist", "Energy Deposition", run->GetNumberOfEvent(), 0, run->GetNumberOfEvent());
+  // analysisManager->CreateH1("edepHist", "Energy Deposition", run->GetNumberOfEvent(), 0, run->GetNumberOfEvent());
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
