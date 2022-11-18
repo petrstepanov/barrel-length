@@ -62,9 +62,21 @@ RunAction::RunAction() {
   accumulableManager->RegisterAccumulable(depositedEnergies);
 
   // Create analysis manager
+  // Example with merging ntuples copied from B5
   G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
-  analysisManager->SetNtupleMerging(true);
+  analysisManager->SetDefaultFileType("root");
   analysisManager->SetVerboseLevel(1);
+  analysisManager->SetNtupleMerging(true);
+  analysisManager->SetFileName("edep");
+
+  // Open an output file "edep-####.root"
+  // G4String fileName = "edep";
+  // auto t = std::time(nullptr);
+  // auto tm = *std::localtime(&t);
+  // std::ostringstream oss;
+  // oss << std::put_time(&tm, "%d-%m-%Y-%H-%M-%S");
+  // fileName += oss.str();
+  // fileName += ".root";
 
   // Create ntuple
   analysisManager->CreateNtuple("barrel", "Values per Geant4 event");
@@ -72,6 +84,8 @@ RunAction::RunAction() {
   analysisManager->CreateNtupleIColumn("eventNumber");
   analysisManager->FinishNtuple();
   // analysisManager->CreateH1("edepHist", "Energy Deposition", run->GetNumberOfEvent(), 0, run->GetNumberOfEvent());
+
+  // analysisManager->SetNtupleFileName(0, "ntuple");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -92,17 +106,12 @@ void RunAction::BeginOfRunAction(const G4Run*) {
   // Get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
 
-  // Open an output file "edep-####.root"
-  // G4String fileName = "edep";
-  // auto t = std::time(nullptr);
-  // auto tm = *std::localtime(&t);
-  // std::ostringstream oss;
-  // oss << std::put_time(&tm, "%d-%m-%Y-%H-%M-%S");
-  // fileName += oss.str();
-  // fileName += ".root";
-  // analysisManager->OpenFile(fileName);
+  // Reset histograms from previous run
+  analysisManager->Reset();
 
-  analysisManager->OpenFile("edep.root");
+  // Open an output file
+  // The default file name is set in RunAction::RunAction(), it can be overwritten in a macro
+  analysisManager->OpenFile();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -142,7 +151,7 @@ void RunAction::EndOfRunAction(const G4Run *run) {
   // Write output ROOT file
   auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->Write();
-  analysisManager->CloseFile();
+  analysisManager->CloseFile(false);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

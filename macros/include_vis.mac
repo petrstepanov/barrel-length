@@ -50,3 +50,7 @@
 # /vis/modeling/trajectories/create/drawByCharge
 # /vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
 # /vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# 3D view
+# /vis/viewer/zoomTo 1.4
+# /vis/viewer/set/viewpointVector 0.5 -2 1

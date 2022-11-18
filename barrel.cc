@@ -21,19 +21,19 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  G4GDMLParser* parser = new G4GDMLParser();
+  G4GDMLParser *parser = new G4GDMLParser();
   // Uncomment below to avoid names stripping
   // parser->SetStripFlag(false);
 
   parser->SetOverlapCheck(true);
   parser->Read(argv[1]);
 
-  // G4RunManager* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
-  G4RunManager* runManager = G4RunManagerFactory::CreateRunManager();
+  G4RunManager* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
+  // G4RunManager* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
 
   runManager->SetUserInitialization(new DetectorConstruction(parser));
-  // G4VModularPhysicsList* physicsList = new FTFP_BERT();
-  G4VModularPhysicsList* physicsList = new QBBC();
+  G4VModularPhysicsList* physicsList = new FTFP_BERT();
+  // G4VModularPhysicsList *physicsList = new QBBC();
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
   runManager->SetUserInitialization(new ActionInitialization());
@@ -55,8 +55,7 @@ int main(int argc, char **argv) {
     G4String command = "/control/execute ";
     G4String fileName = argv[2];
     UImanager->ApplyCommand(command + fileName);
-  }
-  else {
+  } else {
     // Interactive mode
     G4UIExecutive *ui = new G4UIExecutive(argc, argv);
     UImanager->ApplyCommand("/control/execute init_vis.mac");
@@ -64,8 +63,8 @@ int main(int argc, char **argv) {
     delete ui;
   }
 
-  delete visManager;
-  delete runManager;
+  // delete visManager;
+  // delete runManager;
 
   return 0;
 }
