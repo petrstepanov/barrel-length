@@ -1,77 +1,93 @@
 #----------------------------------------------------------------------------
 # Setup the project
-cmake_minimum_required(VERSION 3.16...3.21)
-project(barrel-length)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+project(Barrel)
 
 #----------------------------------------------------------------------------
-# Find Geant4 package, activating all available Vis drivers by default
-# You can set WITH_GEANT4_VIS to OFF via the command line or ccmake/cmake-gui
+# Find Geant4 package, activating all available UI and Vis drivers by default
+# You can set WITH_GEANT4_UIVIS to OFF via the command line or ccmake/cmake-gui
 # to build a batch mode only executable
 #
-option(WITH_GEANT4_VIS "Build example with Geant4 Vis drivers" ON)
-if(WITH_GEANT4_VIS)
-  find_package(Geant4 REQUIRED gdml vis_all)
+option(WITH_GEANT4_UIVIS "Build example with Geant4 UI and Vis drivers" ON)
+if(WITH_GEANT4_UIVIS)
+  find_package(Geant4 REQUIRED ui_all vis_all)
 else()
-  find_package(Geant4 REQUIRED gdml)
+  find_package(Geant4 REQUIRED)
 endif()
 
 #----------------------------------------------------------------------------
 # Setup Geant4 include directories and compile definitions
+# Setup include directory for this project
 #
 include(${Geant4_USE_FILE})
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #----------------------------------------------------------------------------
-# Locate sources and headers for this project
+# Locate SOURCES and HEADERS for this project
+# NB: HEADERS are included so they will show up in IDEs
 #
-include_directories(${PROJECT_SOURCE_DIR}/include 
-                    ${Geant4_INCLUDE_DIR})
-file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
-file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+# set(MAIN_CPP "${PROJECT_SOURCE_DIR}/src/lightguides.cc")
+
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/src/*.cc)
+message (STATUS "Found list of sources: ${SOURCES}")
+#list(REMOVE_ITEM ${SOURCES} ${MAIN_CPP})
+
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/src/*.hh)
+message (STATUS "Found list of headers: ${HEADERS}")
 
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(barrel barrel.cc ${sources} ${headers})
-target_link_libraries(barrel ${Geant4_LIBRARIES} )
+set(EXECUTABLE_TARGET ${PROJECT_NAME}-bin)
+add_executable(${EXECUTABLE_TARGET} ${SOURCES} ${HEADERS})
+target_link_libraries(${EXECUTABLE_TARGET} ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
-# Add program to the project targets
-# (this avoids the need of typing the program name after make)
+# Set executable output name
 #
-add_custom_target(barrel-length DEPENDS barrel)
-
-function(copyFiles sourceFiles)
-  foreach(sourceFile ${sourceFiles})
-    # Replace source path with destination path
-    string(REGEX REPLACE "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}" destFile ${sourceFile})
-    # Copy file to build folder
-    configure_file(
-      ${sourceFile} ${destFile}
-      COPYONLY
-    )
-  endforeach()
-endfunction()
+#get_filename_component(EXECUTABLE_NAME "${MAIN_CPP}" NAME_WE)
+get_filename_component(EXECUTABLE_NAME "${PROJECT_NAME}" NAME_WE)
+string(TOLOWER "${EXECUTABLE_NAME}" EXECUTABLE_NAME)
+set_property(TARGET ${EXECUTABLE_TARGET} PROPERTY OUTPUT_NAME ${EXECUTABLE_NAME})
 
 #----------------------------------------------------------------------------
-# Copy all scripts to the build directory. Easier to pass macros to executable.
-
-file(GLOB_RECURSE barel_gdml_files CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/gdml/*.*)
-# message(STATUS "Found list of Geant4 Macros: ${glass_MACROS}")
-copyFiles("${barel_gdml_files}")
-
-#----------------------------------------------------------------------------
-# Copy macro files
-
-file(GLOB_RECURSE barel_macro_files CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/macros/*.*)
-copyFiles("${barel_macro_files}")
+# Copy all macros to the build directory (at build time, not build system generation)
+#
+add_custom_target(copy_macros
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/macros ${CMAKE_CURRENT_BINARY_DIR}/macros
+)
+add_dependencies(${EXECUTABLE_TARGET} copy_macros)
 
 #----------------------------------------------------------------------------
-# Copy slurm scripts
+# Copy all SLURM scripts to the build directory (at build time, not build system generation)
+#
+add_custom_target(copy_slurm
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/slurm ${CMAKE_CURRENT_BINARY_DIR}/slurm
+)
+add_dependencies(${EXECUTABLE_TARGET} copy_slurm)
 
-file(GLOB_RECURSE barel_slurm_files CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/slurm/*.*)
-copyFiles("${barel_slurm_files}")
+#----------------------------------------------------------------------------
+# Copy all SLURM scripts to the build directory (at build time, not build system generation)
+#
+add_custom_target(copy_gdml
+  COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/gdml ${CMAKE_CURRENT_BINARY_DIR}/gdml
+)
+add_dependencies(${EXECUTABLE_TARGET} copy_gdml)
+
+#----------------------------------------------------------------------------
+# Create output directory (at build time, not build system generation) since Geant4 cannot create directories
+#
+add_custom_target(output_dir
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/output
+)
+add_dependencies(${EXECUTABLE_TARGET} output_dir)
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS barrel DESTINATION bin)
+install(TARGETS ${EXECUTABLE_TARGET} DESTINATION bin)
+
+#----------------------------------------------------------------------------
+# Build the draw scripts
+#
+add_subdirectory (draw)

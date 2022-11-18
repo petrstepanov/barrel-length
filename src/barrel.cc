@@ -28,8 +28,8 @@ int main(int argc, char **argv) {
   parser->SetOverlapCheck(true);
   parser->Read(argv[1]);
 
-  // auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
-  G4RunManager* runManager = G4RunManagerFactory::CreateRunManager();
+  G4RunManager* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
+  // G4RunManager* runManager = G4RunManagerFactory::CreateRunManager();
 
   runManager->SetUserInitialization(new DetectorConstruction(parser));
   // G4VModularPhysicsList* physicsList = new FTFP_BERT();
