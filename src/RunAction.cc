@@ -65,6 +65,13 @@ RunAction::RunAction() {
   G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
   analysisManager->SetNtupleMerging(true);
   analysisManager->SetVerboseLevel(1);
+
+  // Create ntuple
+  analysisManager->CreateNtuple("barrel", "Values per Geant4 event");
+  analysisManager->CreateNtupleDColumn("edep");
+  analysisManager->CreateNtupleIColumn("eventNumber");
+  analysisManager->FinishNtuple();
+  // analysisManager->CreateH1("edepHist", "Energy Deposition", run->GetNumberOfEvent(), 0, run->GetNumberOfEvent());
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -86,22 +93,16 @@ void RunAction::BeginOfRunAction(const G4Run*) {
   auto analysisManager = G4AnalysisManager::Instance();
 
   // Open an output file "edep-####.root"
-  G4String fileName = "edep-";
-  auto t = std::time(nullptr);
-  auto tm = *std::localtime(&t);
-  std::ostringstream oss;
-  oss << std::put_time(&tm, "%d-%m-%Y-%H-%M-%S");
-  fileName += oss.str();
-  fileName += ".root";
+  // G4String fileName = "edep";
+  // auto t = std::time(nullptr);
+  // auto tm = *std::localtime(&t);
+  // std::ostringstream oss;
+  // oss << std::put_time(&tm, "%d-%m-%Y-%H-%M-%S");
+  // fileName += oss.str();
+  // fileName += ".root";
+  // analysisManager->OpenFile(fileName);
 
-  analysisManager->OpenFile(fileName);
-
-  // Create ntuple
-  analysisManager->CreateNtuple("barrel", "Values per Geant4 event");
-  analysisManager->CreateNtupleDColumn("edep");
-  analysisManager->CreateNtupleIColumn("eventNumber");
-  analysisManager->FinishNtuple();
-  // analysisManager->CreateH1("edepHist", "Energy Deposition", run->GetNumberOfEvent(), 0, run->GetNumberOfEvent());
+  analysisManager->OpenFile("edep.root");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
