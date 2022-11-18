@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+    <define>
+        <position name="center" x="0" y="0" z="0" />
+        <rotation name="identity" x="0" y="0" z="0" />
+    </define>
+
+    <materials>
+        <element name="Vacuum_el" formula="Hv" Z="1">
+            <atom value="1.008" />
+        </element>
+        <material name="Vacuum_ref">
+            <D value="0.0000000000000000000001" unit="mg/cm3" />
+            <fraction n="1.0" ref="Vacuum_el" />
+        </material>
+    </materials>
+
+    <solids>
+        <box name="WorldBox" x="5.0" y="1.0" z="8.0" lunit="m" />
+    </solids>
+
+    <structure>
+        <volume name="World">
+            <materialref ref="Vacuum_ref" />
+            <solidref ref="WorldBox" />
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_11.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_12.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_13.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_14.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_15.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_16.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_17.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_18.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_19.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_110.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_111.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_112.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_113.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_114.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_115.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_116.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_117.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_118.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_119.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_120.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_121.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_122.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_123.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_124.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_125.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_126.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_127.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_128.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_129.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_130.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_131.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_132.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_133.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_134.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_135.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_136.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_137.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_138.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_139.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_140.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_141.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_142.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_143.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_144.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_145.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_146.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_147.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_148.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_149.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_150.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_151.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_152.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_153.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_154.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_155.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_156.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_157.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_158.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_159.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_160.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_161.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_162.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_163.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_164.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_165.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_166.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_167.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/40cm/Volumes/All 40cm variant_Shrinkwrap_168.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="World" />
+    </setup>
+</gdml>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+ <define>
+ <position name="All 40cm variant_Shrinkwrap_130_v0" unit="mm" x="-31.4050424576" y="0.295944074803" z="-2390.52123325"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v1" unit="mm" x="-178.425102738" y="-3.33713734772" z="-2762.54521063"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v2" unit="mm" x="-133.436167318" y="-2.4890599389" z="-2779.7945087"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v3" unit="mm" x="5.94382006514" y="1.0" z="-2404.84123563"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v4" unit="mm" x="-31.4050424576" y="40.2040559252" z="-2390.52123325"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v5" unit="mm" x="5.94382006514" y="39.5" z="-2404.84123563"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v6" unit="mm" x="-133.436167318" y="42.9890599392" z="-2779.7945087"/>
+ <position name="All 40cm variant_Shrinkwrap_130_v7" unit="mm" x="-178.425102738" y="43.837137348" z="-2762.54521063"/>
+ </define>
+
+ <solids>
+ <tessellated aunit="deg" lunit="mm" name="All 40cm variant_Shrinkwrap_130_solid">
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v0" vertex2="All 40cm variant_Shrinkwrap_130_v1" vertex3="All 40cm variant_Shrinkwrap_130_v2"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v3" vertex2="All 40cm variant_Shrinkwrap_130_v0" vertex3="All 40cm variant_Shrinkwrap_130_v2"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v4" vertex2="All 40cm variant_Shrinkwrap_130_v5" vertex3="All 40cm variant_Shrinkwrap_130_v6"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v4" vertex2="All 40cm variant_Shrinkwrap_130_v6" vertex3="All 40cm variant_Shrinkwrap_130_v7"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v5" vertex2="All 40cm variant_Shrinkwrap_130_v2" vertex3="All 40cm variant_Shrinkwrap_130_v6"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v3" vertex2="All 40cm variant_Shrinkwrap_130_v2" vertex3="All 40cm variant_Shrinkwrap_130_v5"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v7" vertex2="All 40cm variant_Shrinkwrap_130_v2" vertex3="All 40cm variant_Shrinkwrap_130_v1"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v7" vertex2="All 40cm variant_Shrinkwrap_130_v6" vertex3="All 40cm variant_Shrinkwrap_130_v2"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v1" vertex2="All 40cm variant_Shrinkwrap_130_v0" vertex3="All 40cm variant_Shrinkwrap_130_v4"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v1" vertex2="All 40cm variant_Shrinkwrap_130_v4" vertex3="All 40cm variant_Shrinkwrap_130_v7"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v3" vertex2="All 40cm variant_Shrinkwrap_130_v4" vertex3="All 40cm variant_Shrinkwrap_130_v0"/>
+ <triangular vertex1="All 40cm variant_Shrinkwrap_130_v5" vertex2="All 40cm variant_Shrinkwrap_130_v4" vertex3="All 40cm variant_Shrinkwrap_130_v3"/>
+ </tessellated>
+ <box lunit="mm" name="worldsolid" x="1000" y="1000" z="1000"/>
+ </solids>
+ <structure>
+ <volume name="All 40cm variant_Shrinkwrap_130">
+ <materialref ref="G4_Si"/>
+ <solidref ref="All 40cm variant_Shrinkwrap_130_solid"/>
+ </volume>
+ </structure>
+ <setup name="Default" version="1.0">
+ <world ref="All 40cm variant_Shrinkwrap_130"/>
+ </setup>
+</gdml>

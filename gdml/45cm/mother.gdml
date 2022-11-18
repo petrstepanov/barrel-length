@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+    <define>
+        <position name="center" x="0" y="0" z="0" />
+        <rotation name="identity" x="0" y="0" z="0" />
+    </define>
+
+    <materials>
+        <element name="Vacuum_el" formula="Hv" Z="1">
+            <atom value="1.008" />
+        </element>
+        <material name="Vacuum_ref">
+            <D value="0.0000000000000000000001" unit="mg/cm3" />
+            <fraction n="1.0" ref="Vacuum_el" />
+        </material>
+    </materials>
+
+    <solids>
+        <box name="WorldBox" x="5.0" y="1.0" z="8.0" lunit="m" />
+    </solids>
+
+    <structure>
+        <volume name="World">
+            <materialref ref="Vacuum_ref" />
+            <solidref ref="WorldBox" />
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower1.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower2.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower3.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower4.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower5.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower6.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower7.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower8.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower9.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower10.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower11.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower12.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower13.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower14.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower15.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower16.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower17.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower18.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower19.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower20.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower21.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower22.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower23.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower24.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower25.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower26.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower27.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower28.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower29.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower30.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower31.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower32.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower33.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower34.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower35.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower36.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower37.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower38.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower39.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower40.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower41.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower42.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower43.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower44.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower45.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower46.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower47.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower48.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower49.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower50.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower51.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower52.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower53.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower54.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower55.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower56.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower57.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower58.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower59.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower60.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower61.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower62.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower63.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower64.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower65.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower66.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower67.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+            <physvol>
+                <file name="gdml/45cm/Volumes/Single_Slice_11.14.22_Tower68.gdml" />
+                <positionref ref="center" />
+                <rotationref ref="identity" />
+            </physvol>
+        </volume>
+    </structure>
+    
+    <setup name="Default" version="1.0">
+        <world ref="World" />
+    </setup>
+</gdml>
