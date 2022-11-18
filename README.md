@@ -14,6 +14,11 @@ GDML files for the standard and hybrid are provided by [Joshua Crafts](mailto:cr
 
 Energy deposition studies should predict the optimal geometry to be used in the detector design.
 
+Particle emission point is set on the intersection of the lines going through the volume centers of the very left and very right crystals. Electrons are shot rendomly in the plane of the crystals' sleeve in a 2π angle. Screenshot below visualizes one 10 GeV e− event.
+
+![One 10 GeV e− event](https://github.com/petrstepanov/barrel-length/blob/main/resources/beam-on.png?raw=true "One 10 GeV e− event")
+<p align="center"><i>One 10 GeV e− event visualization in Geant4.</i></p>
+
 ## How to Compile the Program
 
 1. Have your Geant4 environment ready.
