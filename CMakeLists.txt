@@ -1,8 +1,7 @@
 #----------------------------------------------------------------------------
 # Setup the project
-#
-cmake_minimum_required(VERSION 3.16...3.21)
-project(barrel)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+project(Barrel)
 
 #----------------------------------------------------------------------------
 # Find Geant4 package, activating all available UI and Vis drivers by default
@@ -24,7 +23,10 @@ include(${Geant4_USE_FILE})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #----------------------------------------------------------------------------
-# Locate sources and headers for this project
+# Locate SOURCES and HEADERS for this project
+# NB: HEADERS are included so they will show up in IDEs
+#
+# set(MAIN_CPP "${PROJECT_SOURCE_DIR}/src/lightguides.cc")
 
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/src/*.cc)
 message (STATUS "Found list of sources: ${SOURCES}")
@@ -37,7 +39,7 @@ message (STATUS "Found list of headers: ${HEADERS}")
 # Add the executable, and link it to the Geant4 libraries
 #
 set(EXECUTABLE_TARGET ${PROJECT_NAME}-bin)
-add_executable(${EXECUTABLE_TARGET} barrel.cc ${SOURCES} ${HEADERS})
+add_executable(${EXECUTABLE_TARGET} ${SOURCES} ${HEADERS})
 target_link_libraries(${EXECUTABLE_TARGET} ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
@@ -84,3 +86,8 @@ add_dependencies(${EXECUTABLE_TARGET} output_dir)
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS ${EXECUTABLE_TARGET} DESTINATION bin)
+
+#----------------------------------------------------------------------------
+# Build the draw scripts
+#
+add_subdirectory (draw)
