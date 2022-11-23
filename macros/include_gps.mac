@@ -4,7 +4,7 @@
 /gps/ang/type iso
 
 # Estimated in Penpot
-/gps/pos/centre 0.926 0 0 m
+/gps/pos/centre 0.926 0.02 -0.017 m
 
 /gps/ang/mintheta 0 deg
 /gps/ang/maxtheta 180 deg

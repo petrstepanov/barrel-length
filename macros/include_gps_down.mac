@@ -1,0 +1,7 @@
+/gps/pos/type Point
+/gps/particle e-
+/gps/ene/mono 6 GeV
+/gps/direction -1 0 0
+
+# Estimated in Penpot
+/gps/pos/centre 0.926 0.02 -0.017 m
