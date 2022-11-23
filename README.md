@@ -37,12 +37,12 @@ make -j`nproc`
 Launch the program and pass corresponding GDML file as a command-line parameter:
 
 ```
-barrell ./gdml/standard/mother.gdml
+barrell ./gdml/40cm/mother.gdml
 ```
 
 Shoot desired number of the events via entering `/run/beamOn 10` command in the Geant4 interactive session.
 
-## Obtaining results
+## Obtained Results
 
 To obtain results with high statistics, simulation should be preferrably run on a super computer. Pass batch input macro file as a second parameter:
 
@@ -52,8 +52,23 @@ barrell ./gdml/standard/mother.gdml ./macros/batch.mac
 
 Two SLURM scripts are added to facilitate the program run on the supercomputer environment:
 ```
-sbatch ./slurm/standard.sh
+sbatch ./slurm/40cm.sh
 sbatch ./slurm/hybrid.sh
+sbatch ./slurm/45cm.sh
 ```
 
 ## Results
+
+ROOT script `./draw/src/plotEdep.cpp` plots and calculates energy resolutions for selected output files. Plot below demonstrates Crystal Ball fits of the energy deposition histograms for above configurations.
+
+![Comparison of the energy resolutions](https://github.com/petrstepanov/barrel-length/blob/main/resources/results.png?raw=true "Comparison of the energy resolutions")
+<p align="center"><i>Comparison of the energy resolutions.</i></p>
+
+Energy resolutions can also be obtained from the ROOT histograms' parameters. Table below outlines the results:
+
+| First Header                                         | 40 cm         | 45 cm         | Hybrid        |
+| ---------------------------------------------------- | ------------- | ------------- | ------------- |
+| Histogram Resolution (Std Dev / Mean), %             | 11.1          | 10.4          | 10.2          |
+| From Crystal Ball Fit (Gauss Sigma / Gauss Mean), %  | 6.67 ± 0.03   | 6.54 ± 0.03   | 6.49 ± 0.03   |
+
+Feel free to reach out to stepanovps@gmail.com with questions and concerns.
