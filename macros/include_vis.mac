@@ -23,7 +23,8 @@
 
 
 # Draw coordinate axes:
-/vis/scene/add/axes 0.926 0 0 0.5 m
+/vis/scene/add/axes 0.926 0.02 -0.017 0.4 m
+/vis/scene/add/axes 0     0.02 -0.017 0.04 m
 
 # Show world volume:
 # /vis/geometry/set/visibility World 0 true

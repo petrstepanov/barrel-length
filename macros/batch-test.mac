@@ -2,7 +2,7 @@
 /run/initialize
 
 # GPS
-/control/execute include_gps_down.mac
+/control/execute include_gps.mac
 
 # Visualization setting
 /vis/ASCIITree/verbose 0

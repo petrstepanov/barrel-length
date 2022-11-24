@@ -1,3 +1,4 @@
+#include "Constants.hh"
 #include "ActionInitialization.hh"
 #include "DetectorConstruction.hh"
 #include "PrimaryGeneratorAction.hh"
@@ -27,6 +28,8 @@ int main(int argc, char **argv) {
 
   parser->SetOverlapCheck(true);
   parser->Read(argv[1]);
+
+  Constants::GetInstance()->setOutputFileSuffix(argv[1]);
 
   G4RunManager* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
   // G4RunManager* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
