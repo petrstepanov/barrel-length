@@ -28,6 +28,7 @@
 /// \brief Implementation of the B1::RunAction class
 
 #include "RunAction.hh"
+#include "Constants.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "DetectorConstruction.hh"
 
@@ -67,7 +68,10 @@ RunAction::RunAction() {
   analysisManager->SetDefaultFileType("root");
   analysisManager->SetVerboseLevel(1);
   analysisManager->SetNtupleMerging(true);
-  analysisManager->SetFileName("edep");
+
+  G4String fileName = "edep";
+  fileName += Constants::GetInstance()->getOutputFileSuffix();
+  analysisManager->SetFileName(fileName);
 
   // Open an output file "edep-####.root"
   // G4String fileName = "edep";
