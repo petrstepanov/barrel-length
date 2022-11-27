@@ -62,13 +62,13 @@ sbatch ./slurm/45cm.sh
 ROOT script `./draw/src/plotEdep.cpp` plots and calculates energy resolutions for selected output files. Plot below demonstrates Crystal Ball fits of the energy deposition histograms for above configurations.
 
 ![Comparison of the energy resolutions](https://github.com/petrstepanov/barrel-length/blob/main/resources/results.png?raw=true "Comparison of the energy resolutions")
-<p align="center"><i>Comparison of the energy resolutions.</i></p>
+<p align="center"><i>Comparison of the energy resolutions obtained with 6 GeV electrons.</i></p>
 
 Energy resolutions can also be obtained from the ROOT histograms' parameters. Table below outlines the results:
 
-| First Header                                         | 40 cm         | 45 cm         | Hybrid        |
-| ---------------------------------------------------- | ------------- | ------------- | ------------- |
-| Histogram Resolution (Std Dev / Mean), %             | 11.1          | 10.4          | 10.2          |
-| From Crystal Ball Fit (Gauss Sigma / Gauss Mean), %  | 6.67 ± 0.03   | 6.54 ± 0.03   | 6.49 ± 0.03   |
+| Energy Resolution at 6 GeV, electrons     | 40 cm         | 45 cm         | Hybrid        |
+| ----------------------------------------- | ------------- | ------------- | ------------- |
+| Crystal ball gauss sigma / gauss mean, %  | 1.703 ± 0.007 | 1.586 ± 0.007 | 1.713 ± 0.007 |
+| Histogram std. dev. / histogram mean, %   | 2.983 ± 0.007 | 2.370 ± 0.007 | 2.978 ± 0.007 |
 
-Feel free to reach out to stepanovps@gmail.com with questions and concerns.
+Feel free to reach me out at stepanovps@gmail.com with questions and concerns.
