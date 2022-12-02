@@ -34,7 +34,7 @@ Materials::Materials() : fMaterialsList { } {
   // █▀ █▀▀ █ █▀▀ █░░ ▄▀█ █▀ █▀ ▄▄ █░█ █▀█ █░░
   // ▄█ █▄▄ █ █▄█ █▄▄ █▀█ ▄█ ▄█ ░░ ▀▀█ █▄█ █▄▄
   {
-    G4Material *material = getBaseMaterial("SciGlass-40-L", BaseMaterialType::SciGlass);
+    G4Material *material = getBaseMaterial("SciGlass-40-L", BaseMaterialType::SciGlassLight);
 
     G4MaterialPropertiesTable *mpt = getBaseMPT(BaseMaterialType::SciGlass);
 
